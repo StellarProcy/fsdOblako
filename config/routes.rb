@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :todos, only: [:index, :show, :create, :update]
   end
 
-  patch '/todos', to: 'todos#update'
+  patch '/projects/:id/todo/:id', to: 'todos#update'
 
   get 'projects', to: 'project#index'
 
