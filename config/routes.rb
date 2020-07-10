@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   patch '/todos', to: 'todos#update'
 
+  get 'projects', to: 'project#index'
+
   root 'projects#show'
 end
