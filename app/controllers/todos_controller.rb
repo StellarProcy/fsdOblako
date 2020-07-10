@@ -12,8 +12,8 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(text: params[:text], isCompleted: params[:isCompleted], project_id: params[:project_id])
       if @todo.save
-        render json: @todo, status: created
-        @project = Project.find(todo.project_id)
+        render json: @todo, status: :created
+        @project = Project.find(@todo.project_id)
       else
         render json: @todo.errors, status: unprocessable_entity
       end
