@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'projects/', to: 'project#index'
-  
-  get 'project/index'
+  resources :todos
+  resources :projects, only: [:index, :show, :create] do
+    resources :todos, only: [:index, :show, :create, :update]
+  end
+
+  patch '/todos', to: 'todos#update'
+
+  root 'projects#index'
 end
